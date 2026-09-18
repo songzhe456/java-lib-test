@@ -6,17 +6,17 @@ import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
-import java.io.IOException;
-
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 /**
  * 仅为显示一个可交互窗口
  */
 public class App {
-    private static final int WINDOW_WIDTH = 2048;
-    private static final int WINDOW_HEIGHT = 560;
+    private static final int WINDOW_WIDTH = 854;
+    private static final int WINDOW_HEIGHT = 480;
     private static long window;
+    private static boolean DO_NOT_CLEAR_COLOR = false;
+    private static boolean  initialized = false;
 
     public static void main(String[] args) {
         ArgumentParser argumentParser = new ArgumentParser();
@@ -27,6 +27,7 @@ public class App {
     }
 
     public static boolean init(){
+        if(initialized){return true;}
         try {
             if (!GLFW.glfwInit()) {
                 System.err.println("GLFW初始化失败");
@@ -39,12 +40,15 @@ public class App {
             }
             GLFW.glfwMakeContextCurrent(window);
             GL.createCapabilities();
-            GL11.glClearColor(0.5f, 0.69f, 0.54f, 1.0f);
+            if(!isDoNotClearColor()) {
+                GL11.glClearColor(0.5f, 0.69f, 0.54f, 1.0f);
+            }
         } catch (Exception e) {
             System.err.println("LWJGL初始化时出现错误:" + e);
             return false;
         }
         System.out.println("LWJGL初始化成功");
+        initialized = true;
         return true;
     }
 
@@ -67,8 +71,8 @@ public class App {
         cleanup();
     }
 
-    public static boolean checkPressed(int key,int staus){
-        return GLFW.glfwGetKey(window, key) == staus;
+    public static boolean checkPressed(int key,int status){
+        return GLFW.glfwGetKey(window, key) == status;
     }
 
     public static void cleanup(){
@@ -82,7 +86,19 @@ public class App {
     }
 
     public static void loadTextures() {
-        TextureLoader loader = new TextureLoader( "./assets/textures/grass.png");
+        TextureLoader loader = new TextureLoader( "/assets/textures/grass.png");
         System.out.println(loader.load());
+    }
+
+    public static void changeColor(float red,float green,float blue,float alpha){
+        GL11.glClearColor(red,green,blue,alpha);
+    }
+
+    public static void setDoNotClearColor(boolean doNotClearColor) {
+        DO_NOT_CLEAR_COLOR = doNotClearColor;
+    }
+
+    public static boolean isDoNotClearColor() {
+        return DO_NOT_CLEAR_COLOR;
     }
 }
