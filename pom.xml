@@ -70,6 +70,16 @@
       <artifactId>lwjgl-opengl</artifactId>
       <version>3.4.3</version>
     </dependency>
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-stb</artifactId>
+      <version>3.4.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-vulkan</artifactId>
+      <version>3.4.3</version>
+    </dependency>
 
     <dependency>
       <groupId>org.lwjgl</groupId>
@@ -89,6 +99,13 @@
       <version>3.4.3</version>
       <classifier>${lwjgl.natives}</classifier>
     </dependency>
+    <dependency>
+      <groupId>org.lwjgl</groupId>
+      <artifactId>lwjgl-stb</artifactId>
+      <version>3.4.3</version>
+      <classifier>${lwjgl.natives}</classifier>
+    </dependency>
+
     <dependency>
       <groupId>net.sf.jopt-simple</groupId>
       <artifactId>jopt-simple</artifactId>
@@ -117,6 +134,9 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.3.0</version>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

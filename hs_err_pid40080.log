@@ -1,0 +1,29 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000017ccaca3dc3, pid=40080, tid=31504
+#
+# JRE version: Java(TM) SE Runtime Environment (25.0.4+7) (build 25.0.4+7-LTS-189)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.0.4+7-LTS-189, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# v  ~StubRoutines::jbyte_fill 0x0000017ccaca3dc3
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: C:\Users\Zhe Song\AppData\Local\Temp\surefire13837980621544452949\surefirebooter-20260918143209695_3.jar C:\Users\Zhe Song\AppData\Local\Temp\surefire13837980621544452949 2026-09-18T14-32-09_538-jvmRun1 surefire-20260918143209695_1tmp surefire_0-20260918143209695_2tmp
+
+Host: Intel(R) Core(TM) Ultra 5 336H, 12 cores, 31G,  Windows 11 , 64 bit Build 26100 (10.0.26100.9444)
+Time: Fri Sep 18 14:32:10 2026 elapsed time: 0.789801 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000017ce7148940):  JavaThread "Thread-2"         [_thread_in_vm, id=31504, stack(0x0000007c2ee00000,0x0000007c2ef00000) (1024K)]
+
+Stack: [0x0000007c2ee00000,0x0000007c2ef00000],  sp=0x0000007c2eeff110,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
